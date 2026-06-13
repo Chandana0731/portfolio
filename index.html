@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thota Chandana | Software Developer Portfolio</title>
+
+<style>
+:root{
+    --bg:#f6f8fc;
+    --surface:#ffffff;
+    --ink:#172033;
+    --muted:#607087;
+    --primary:#114c8d;
+    --primary-2:#0b315d;
+    --accent:#0b9b7a;
+    --accent-2:#f0b429;
+    --line:#dbe4f0;
+    --soft:#eaf4ff;
+    --soft-accent:#e7f8f3;
+    --shadow:0 18px 45px rgba(15, 35, 65, 0.10);
+    --shadow-hover:0 24px 60px rgba(15, 35, 65, 0.16);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-width:320px;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.65;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+}
+
+.container{
+    width:min(1120px, calc(100% - 40px));
+    margin:0 auto;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(255,255,255,0.94);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(16px);
+}
+
+.nav-wrap{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+}
+
+.brand{
+    color:var(--primary-2);
+    font-size:20px;
+    font-weight:800;
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    color:var(--ink);
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+.hero{
+    position:relative;
+    min-height:calc(100vh - 72px);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 14% 18%, rgba(240,180,41,0.18), transparent 28%),
+        radial-gradient(circle at 88% 20%, rgba(11,155,122,0.16), transparent 30%),
+        linear-gradient(135deg, #f8fbff 0%, #edf6ff 52%, #eefbf7 100%);
+    color:var(--ink);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    right:-120px;
+    bottom:-180px;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    background:rgba(17,76,141,0.08);
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:minmax(0, 1.08fr) 300px;
+    align-items:center;
+    gap:64px;
+    padding:76px 0 92px;
+}
+
+.tag{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    max-width:100%;
+    margin-bottom:18px;
+    padding:8px 12px;
+    border:1px solid rgba(11,155,122,0.22);
+    border-radius:999px;
+    background:var(--soft-accent);
+    color:#087057;
+    font-size:13px;
+    font-weight:800;
+}
+
+.hero h1{
+    max-width:780px;
+    color:var(--primary-2);
+    font-size:clamp(34px, 5.2vw, 58px);
+    line-height:1.04;
+}
+
+.hero h1 span{
+    color:var(--accent);
+}
+
+.hero-text{
+    max-width:690px;
+    margin-top:22px;
+    color:var(--muted);
+    font-size:19px;
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:32px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:12px 20px;
+    border:1px solid transparent;
+    border-radius:8px;
+    font-weight:800;
+    text-decoration:none;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:var(--primary-2);
+    color:white;
+    box-shadow:0 14px 24px rgba(11,49,93,0.18);
+}
+
+.btn-secondary{
+    border-color:#b8cce4;
+    color:var(--primary-2);
+    background:white;
+}
+
+.profile-panel{
+    position:relative;
+    justify-self:end;
+    width:100%;
+    max-width:300px;
+    padding:14px;
+    border:1px solid rgba(219,228,240,0.95);
+    border-radius:20px;
+    background:rgba(255,255,255,0.76);
+    box-shadow:0 26px 70px rgba(15,35,65,0.16);
+}
+
+.profile-panel::before{
+    content:"";
+    position:absolute;
+    inset:-18px -18px auto auto;
+    width:96px;
+    height:96px;
+    border-radius:24px;
+    background:var(--accent-2);
+    z-index:-1;
+}
+
+.profile-panel::after{
+    content:"";
+    position:absolute;
+    inset:auto auto -20px -20px;
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    background:var(--accent);
+    opacity:0.18;
+    z-index:-1;
+}
+
+.profile{
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:16px;
+    object-fit:cover;
+    background:white;
+}
+
+.profile-panel p{
+    margin-top:16px;
+    color:var(--primary-2);
+    font-weight:700;
+}
+
+.hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+    max-width:650px;
+    margin-top:34px;
+}
+
+.hero-stat{
+    padding:14px;
+    border:1px solid rgba(219,228,240,0.95);
+    border-radius:14px;
+    background:rgba(255,255,255,0.74);
+    box-shadow:0 12px 30px rgba(15,35,65,0.08);
+}
+
+.hero-stat strong{
+    display:block;
+    color:var(--primary-2);
+    font-size:22px;
+    line-height:1.1;
+}
+
+.hero-stat span{
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:700;
+}
+
+section{
+    padding:82px 0;
+    scroll-margin-top:88px;
+}
+
+.section-heading{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:28px;
+}
+
+.section-heading h2{
+    color:var(--primary-2);
+    font-size:34px;
+    line-height:1.15;
+}
+
+.section-heading p{
+    max-width:620px;
+    color:var(--muted);
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:24px;
+}
+
+.panel{
+    position:relative;
+    overflow:hidden;
+    background:var(--surface);
+    border:1px solid rgba(219,228,240,0.9);
+    border-radius:14px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.panel::before{
+    content:"";
+    position:absolute;
+    inset:0 0 auto;
+    height:5px;
+    background:linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.panel h3{
+    color:var(--primary-2);
+    margin-bottom:10px;
+}
+
+.highlights{
+    display:grid;
+    gap:14px;
+}
+
+.highlight{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:14px;
+    align-items:start;
+}
+
+.number{
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:var(--soft-accent);
+    color:#087057;
+    font-weight:900;
+}
+
+.grid{
+    display:grid;
+    gap:22px;
+}
+
+.grid-2{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+.grid-3{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    background:var(--surface);
+    border:1px solid rgba(219,228,240,0.92);
+    border-radius:14px;
+    padding:26px;
+    box-shadow:var(--shadow);
+    transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:5px;
+    background:linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#b8cce4;
+    box-shadow:var(--shadow-hover);
+}
+
+.card h3{
+    color:var(--primary-2);
+    line-height:1.25;
+    margin-bottom:8px;
+}
+
+.meta{
+    color:var(--muted);
+    font-weight:800;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:20px;
+}
+
+.skill-category{
+    position:relative;
+    overflow:hidden;
+    background:var(--surface);
+    border:1px solid rgba(219,228,240,0.92);
+    border-radius:14px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.skill-category::before{
+    content:"";
+    position:absolute;
+    inset:0 0 auto;
+    height:5px;
+    background:linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.skill-category:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-hover);
+}
+
+.skill-category h3{
+    color:var(--primary-2);
+    margin-bottom:14px;
+}
+
+.skill{
+    padding:10px 15px;
+    border:1px solid #bce7dd;
+    border-radius:999px;
+    background:var(--soft-accent);
+    color:#096d55;
+    font-weight:800;
+}
+
+.project-card{
+    position:relative;
+    overflow:hidden;
+    background:var(--surface);
+    border:1px solid rgba(219,228,240,0.92);
+    border-radius:16px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.project-card::before{
+    content:"";
+    position:absolute;
+    inset:0 0 auto;
+    width:100%;
+    height:6px;
+    margin:0;
+    border-radius:0;
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.project-card::after{
+    content:"";
+    position:absolute;
+    right:-42px;
+    top:-42px;
+    width:112px;
+    height:112px;
+    border-radius:50%;
+    background:rgba(11,155,122,0.08);
+}
+
+.project-visual{
+    position:relative;
+    min-height:170px;
+    margin:4px 0 24px;
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid rgba(219,228,240,0.95);
+    background:linear-gradient(135deg, #f7fbff, #eefbf7);
+}
+
+.project-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(240,180,41,0.18), transparent 26%),
+        radial-gradient(circle at 84% 22%, rgba(11,155,122,0.18), transparent 30%),
+        linear-gradient(135deg, rgba(17,76,141,0.08), rgba(11,155,122,0.05));
+}
+
+.visual-card{
+    position:absolute;
+    inset:22px;
+    display:grid;
+    grid-template-columns:82px 1fr;
+    gap:18px;
+    align-items:center;
+    padding:20px;
+    border:1px solid rgba(255,255,255,0.72);
+    border-radius:14px;
+    background:rgba(255,255,255,0.78);
+    box-shadow:0 18px 36px rgba(15,35,65,0.12);
+}
+
+.visual-icon{
+    position:relative;
+    width:82px;
+    height:82px;
+    border-radius:18px;
+    background:linear-gradient(135deg, var(--primary), var(--accent));
+    box-shadow:0 16px 28px rgba(15,35,65,0.18);
+}
+
+.project-logo-visual .visual-icon::before{
+    content:"";
+    position:absolute;
+    inset:20px;
+    border:7px solid white;
+    border-radius:50%;
+}
+
+.project-logo-visual .visual-icon::after{
+    content:"";
+    position:absolute;
+    right:12px;
+    bottom:13px;
+    width:25px;
+    height:15px;
+    border-left:5px solid #fff1a8;
+    border-bottom:5px solid #fff1a8;
+    transform:rotate(-45deg);
+}
+
+.project-ocr-visual .visual-icon::before{
+    content:"";
+    position:absolute;
+    left:20px;
+    right:20px;
+    top:20px;
+    height:42px;
+    background:
+        linear-gradient(white 0 0) 0 0/100% 5px no-repeat,
+        linear-gradient(white 0 0) 0 18px/80% 5px no-repeat,
+        linear-gradient(white 0 0) 0 36px/92% 5px no-repeat;
+}
+
+.visual-lines{
+    display:grid;
+    gap:11px;
+}
+
+.visual-line{
+    display:block;
+    height:12px;
+    border-radius:999px;
+    background:#cbd8e8;
+}
+
+.visual-line:nth-child(1){
+    width:80%;
+}
+
+.visual-line:nth-child(2){
+    width:62%;
+}
+
+.visual-line:nth-child(3){
+    width:92%;
+}
+
+.visual-chip{
+    display:inline-flex;
+    width:max-content;
+    margin-top:4px;
+    padding:7px 11px;
+    border-radius:999px;
+    background:var(--primary-2);
+    color:white;
+    font-size:12px;
+    font-weight:900;
+}
+
+.project-ocr-visual .visual-chip{
+    background:var(--accent);
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+    border-color:#b8cce4;
+    box-shadow:var(--shadow-hover);
+}
+
+.project-card h3{
+    position:relative;
+    color:var(--primary-2);
+    line-height:1.25;
+    margin-top:8px;
+    margin-bottom:12px;
+}
+
+.project-card ul{
+    position:relative;
+    margin:14px 0 0 18px;
+}
+
+.project-card li{
+    margin-top:8px;
+}
+
+.cert-list{
+    display:grid;
+    gap:14px;
+}
+
+.cert-item{
+    position:relative;
+    overflow:hidden;
+    padding:22px 22px 22px 26px;
+    border:1px solid rgba(219,228,240,0.92);
+    border-radius:14px;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.cert-item::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:6px;
+    background:linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+
+.cert-item:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-hover);
+}
+
+.cert-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:40px;
+    margin-top:14px;
+    padding:9px 14px;
+    border-radius:8px;
+    background:var(--primary);
+    color:white;
+    font-size:14px;
+    font-weight:800;
+    text-decoration:none;
+    transition:background 0.2s ease, transform 0.2s ease;
+}
+
+.cert-link:hover{
+    background:var(--accent);
+    transform:translateY(-2px);
+}
+
+.contact-panel{
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:28px;
+    align-items:start;
+    background:linear-gradient(135deg, var(--primary-2), #123f72 58%, #08745e);
+    color:white;
+    border-radius:16px;
+    padding:34px;
+    box-shadow:var(--shadow-hover);
+}
+
+.contact-panel::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:inherit;
+    pointer-events:none;
+}
+
+.contact-panel h2{
+    font-size:32px;
+    line-height:1.15;
+    margin-bottom:12px;
+}
+
+.contact-panel p{
+    color:#dbeafe;
+}
+
+.contact-list{
+    display:grid;
+    gap:14px;
+}
+
+.contact-item{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:12px;
+    overflow-wrap:anywhere;
+}
+
+.contact-label{
+    color:#a7f3d0;
+    font-weight:900;
+}
+
+.contact-item a{
+    color:white;
+    text-decoration:none;
+}
+
+.contact-item a:hover{
+    text-decoration:underline;
+}
+
+footer{
+    padding:24px;
+    background:#071f3d;
+    color:white;
+    text-align:center;
+}
+
+@media(max-width:920px){
+    .hero-content,
+    .about-grid,
+    .contact-panel{
+        grid-template-columns:1fr;
+    }
+
+    .profile-panel{
+        justify-self:start;
+        max-width:340px;
+    }
+
+    .hero-stats{
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-3{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .section-heading p{
+        margin-top:10px;
+    }
+}
+
+@media(max-width:720px){
+    .container{
+        width:min(100% - 28px, 1120px);
+    }
+
+    .nav-wrap{
+        min-height:auto;
+        align-items:flex-start;
+        flex-direction:column;
+        padding:14px 0;
+    }
+
+    .nav-links{
+        width:100%;
+        justify-content:flex-start;
+        gap:10px 14px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:auto;
+    }
+
+    .hero-content{
+        gap:32px;
+        padding:58px 0 80px;
+    }
+
+    .hero-text{
+        font-size:18px;
+    }
+
+    .hero-stats{
+        grid-template-columns:1fr;
+    }
+
+    .profile{
+        aspect-ratio:1;
+    }
+
+    section{
+        padding:58px 0;
+        scroll-margin-top:150px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .panel,
+    .card,
+    .project-card,
+    .contact-panel{
+        padding:22px;
+    }
+}
+
+@media(max-width:460px){
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .profile-panel{
+        max-width:100%;
+    }
+
+    .highlight{
+        grid-template-columns:1fr;
+    }
+
+    .contact-item{
+        grid-template-columns:1fr;
+        gap:2px;
+    }
+}
+</style>
+</head>
+
+<body>
+<nav>
+    <div class="container nav-wrap">
+        <a href="#home" class="brand">Thota Chandana</a>
+        <div class="nav-links" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <header class="hero" id="home">
+        <div class="container hero-content">
+            <div>
+                <span class="tag">Python | Machine Learning | Generative AI | Web Development</span>
+                <h1>Developing AI-powered applications with <span>efficient software solutions.</span></h1>
+                <p class="hero-text">
+                    I am Thota Chandana, a Computer Science Engineering graduate skilled in Python, machine learning,
+                    data processing, NLP, OCR, SQL, and responsive web development.
+                </p>
+                <div class="hero-actions">
+                    <a href="resume.pdf" download class="btn btn-primary">Download Resume</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+
+                <div class="hero-stats" aria-label="Portfolio highlights">
+                    <div class="hero-stat">
+                        <strong>2+</strong>
+                        <span>AI projects</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>10+</strong>
+                        <span>Technical skills</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>2026</strong>
+                        <span>CSE graduate</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="profile-panel" aria-label="Profile summary">
+                <img src="profile.jpeg" alt="Thota Chandana profile photo" class="profile">
+                <p>B.Tech CSE Graduate seeking software developer and AI-focused opportunities.</p>
+            </aside>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-heading">
+                <h2>About Me</h2>
+                <p>A Computer Science graduate focused on building practical, intelligent, and user-friendly software.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="panel">
+                    <p>
+                        I am a Computer Science Engineering graduate with a strong interest in software development,
+                        machine learning, and AI-based applications. I have worked on projects involving image
+                        classification, OCR, NLP, similarity scoring, and responsive web interfaces. My goal is to
+                        apply my technical skills in Python, Java, SQL, and web technologies to build reliable
+                        solutions while continuously improving as a developer.
+                    </p>
+                </div>
+
+                <div class="panel highlights">
+                    <div class="highlight">
+                        <span class="number">01</span>
+                        <div>
+                            <h3>AI & ML Applications</h3>
+                            <p>Experience with computer vision, OCR, NLP, model comparison, and similarity-based evaluation.</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <span class="number">02</span>
+                        <div>
+                            <h3>Software Development</h3>
+                            <p>Skilled in writing structured code, solving problems, and working with Python, Java, and SQL.</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <span class="number">03</span>
+                        <div>
+                            <h3>Frontend Basics</h3>
+                            <p>Able to create responsive web pages with clean layouts using HTML, CSS, and JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Technical Skills</h2>
+                <p>Tools and technologies I use to build software, data, and AI-focused projects.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Java</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skills">
+                        <span class="skill">Machine Learning</span>
+                        <span class="skill">Generative AI</span>
+                        <span class="skill">NLP</span>
+                        <span class="skill">OCR</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skills">
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Web Technology</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Database</h3>
+                    <div class="skills">
+                        <span class="skill">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Frameworks</h3>
+                    <div class="skills">
+                        <span class="skill">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Featured Projects</h2>
+                <p>Project work that shows applied machine learning, interface building, and problem-solving.</p>
+            </div>
+
+            <div class="grid grid-2">
+                <article class="project-card">
+                    <div class="project-visual project-logo-visual" aria-hidden="true">
+                        <div class="visual-card">
+                            <span class="visual-icon"></span>
+                            <div class="visual-lines">
+                                <span class="visual-line"></span>
+                                <span class="visual-line"></span>
+                                <span class="visual-line"></span>
+                                <span class="visual-chip">Logo verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>LogoShield: Ensemble-Based Counterfeit Logo Detector</h3>
+                    <p>
+                        Developed a counterfeit logo detection system using VGG16, ResNet50, and MobileNetV2.
+                        Combined model predictions through soft voting ensemble learning for stronger detection.
+                    </p>
+                    <ul>
+                        <li>Built a Streamlit interface for real-time logo verification.</li>
+                        <li>Applied transfer learning models for image classification.</li>
+                        <li>Focused on improving reliability through ensemble prediction.</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-visual project-ocr-visual" aria-hidden="true">
+                        <div class="visual-card">
+                            <span class="visual-icon"></span>
+                            <div class="visual-lines">
+                                <span class="visual-line"></span>
+                                <span class="visual-line"></span>
+                                <span class="visual-line"></span>
+                                <span class="visual-chip">Answer scored</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Grading System for Handwritten Answer Sheets</h3>
+                    <p>
+                        Built an automated answer evaluation system using OCR, Machine Learning, and NLP techniques.
+                        Compared student responses with model answers using cosine similarity and semantic similarity.
+                    </p>
+                    <ul>
+                        <li>Designed a pipeline for text extraction from handwritten answers.</li>
+                        <li>Used similarity scoring to support automated grading.</li>
+                        <li>Worked on a practical education-focused AI workflow.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Education</h2>
+                <p>Academic background in Computer Science with consistent performance.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>B.Tech - Computer Science Engineering</h3>
+                    <p>Talla Padmavathi College of Engineering</p>
+                    <p class="meta">CGPA: 7.9 | 2026</p>
+                </div>
+
+                <div class="card">
+                    <h3>Intermediate</h3>
+                    <p>Telangana State Model School and Junior College</p>
+                    <p class="meta">GPA: 9.02 | 2022</p>
+                </div>
+
+                <div class="card">
+                    <h3>SSC</h3>
+                    <p>Telangana State Model School</p>
+                    <p class="meta">GPA: 10 | 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Certifications</h2>
+                <p>Learning credentials that support my technical foundation.</p>
+            </div>
+
+            <div class="cert-list">
+                <div class="cert-item">
+                    <h3>SAP Code Unnati</h3>
+                    <p>Emerging Technologies</p>
+                    <a class="cert-link" href="https://drive.google.com/file/d/1sS6DU7cjmi_gCgQnF2BBKZRzolWL8mpR/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+
+                <div class="cert-item">
+                    <h3>Infosys Springboard</h3>
+                    <p>Basics of Python</p>
+                    <a class="cert-link" href="https://drive.google.com/file/d/1g8a5Jl5ewbt7MXmJPgs_GB_b-UagosPY/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+
+                <div class="cert-item">
+                    <h3>Oracle</h3>
+                    <p>Java Fundamentals</p>
+                    <a class="cert-link" href="https://drive.google.com/file/d/1InQWJpKp1yhzsxesUBlbbQh-rNTtX5gF/view?usp=drive_link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-panel">
+                <div>
+                    <h2>Let us connect.</h2>
+                    <p>
+                        I am open to software development, AI, machine learning, and entry-level technology opportunities.
+                    </p>
+                </div>
+
+                <div class="contact-list">
+                    <p class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:thotachandana31@gmail.com">thotachandana31@gmail.com</a>
+                    </p>
+
+                    <p class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+916305604948">+91 6305604948</a>
+                    </p>
+
+                    <p class="contact-item">
+                        <span class="contact-label">Location</span>
+                        <span>Telangana, India</span>
+                    </p>
+
+                    <p class="contact-item">
+                        <span class="contact-label">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/chandana-thota-157006256" target="_blank" rel="noopener noreferrer">
+                            linkedin.com/in/chandana-thota-157006256
+                        </a>
+                    </p>
+
+                    <p class="contact-item">
+                        <span class="contact-label">GitHub</span>
+                        <a href="https://github.com/chandanathota" target="_blank" rel="noopener noreferrer">
+                            github.com/chandanathota
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Thota Chandana | Portfolio</p>
+</footer>
+</body>
+</html>
